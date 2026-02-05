@@ -64,8 +64,9 @@ This project follows **semantic versioning**.
 * `v0.1.0` – Initial release with hardcoded networking values
 * `v0.2.0` – Variables introduced for improved flexibility and maintainability
 
-Future versions may include:
-*further reducing the number of variables and resources
+Future versions may include: 
+
+* further reducing the number of variables and resources
 * `.tfvars` files
 * Environment separation (dev/stage/prod)
 * Terraform modules
