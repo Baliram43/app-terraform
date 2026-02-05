@@ -1,42 +1,47 @@
 resource "aws_vpc" "awsvpc" {
-  cidr_block = var.vpccidr
+  cidr_block = var.net_info.vpccidr
   tags = {
-    Name = var.vpcname
+    Name = var.net_info.vpcname
+  }
+}
+resource "aws_subnet" "subnets" {
+  count             = length(var.net_info.subnets_info[0].subaz) #4=hardcoded
+  vpc_id            = aws_vpc.awsvpc.id
+  availability_zone = var.net_info.subnets_info[0].subaz[count.index]
+  cidr_block        = var.net_info.subnets_info[0].subcidr[count.index]
+  tags = {
+    Name = var.net_info.subnets_info[0].subname[count.index]
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* i want 4-subnets converted into 1-subnet like this in a single subnet source but not hardcoded, so we written above in terms of varibales
 resource "aws_subnet" "websubnet" {
   vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = var.websubcidr
-  availability_zone = var.websubaz
+  cidr_block        = ["10.0.0./24","10.1.0./24","10.2.0./24","10.3.0./24"]
+  availability_zone = ["ap-south-1a","ap-south-1a","ap-south-1a","ap-south-1a"]
   tags = {
-    Name = var.websubname
+    Name = ["websub","appsub","dbsub","linuxsub"]
   }
-}
-
-resource "aws_subnet" "appsubnet" {
-  vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = var.appsubcidr
-  availability_zone = var.appsubaz
-  tags = {
-    Name = var.appsubname
-  }
-}
-
-resource "aws_subnet" "dbsubnet" {
-  vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = var.dbsubcidr
-  availability_zone = var.dbsubaz
-  tags = {
-    Name = var.dbsubname
-  }
-}
-
-resource "aws_subnet" "seversub" {
-  vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = var.serversubcidr
-  availability_zone = var.serversubaz
-  tags = {
-    Name = var.serversubname
-  }
-}
+} 
+*/
