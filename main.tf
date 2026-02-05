@@ -1,42 +1,42 @@
 resource "aws_vpc" "awsvpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpccidr
   tags = {
-    Name = "myvpc"
+    Name = var.vpcname
   }
 }
 
 resource "aws_subnet" "websubnet" {
   vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = "10.0.0.0/24"
-  availability_zone = "ap-soth-1a"
+  cidr_block        = var.websubcidr
+  availability_zone = var.websubaz
   tags = {
-    Name = "mywebsub"
+    Name = var.websubname
   }
 }
 
 resource "aws_subnet" "appsubnet" {
   vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "ap-south-1b"
+  cidr_block        = var.appsubcidr
+  availability_zone = var.appsubaz
   tags = {
-    Name = "appsub"
+    Name = var.appsubname
   }
 }
 
 resource "aws_subnet" "dbsubnet" {
   vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = "10.0.2.0/24"
-  availability_zone = "ap-south-1c"
+  cidr_block        = var.dbsubcidr
+  availability_zone = var.dbsubaz
   tags = {
-    Name = "dbsub"
+    Name = var.dbsubname
   }
 }
 
 resource "aws_subnet" "seversub" {
   vpc_id            = aws_vpc.awsvpc.id
-  cidr_block        = "10.0.3.0/24"
-  availability_zone = "ap=south-1c"
+  cidr_block        = var.serversubcidr
+  availability_zone = var.serversubaz
   tags = {
-    Name = "mylinuxserver"
+    Name = var.serversubname
   }
 }
