@@ -1,3 +1,4 @@
+#converting mutliple varibles blocks in one single variable block
 variable "net_info" {
   type = object({
     vpccidr = string
