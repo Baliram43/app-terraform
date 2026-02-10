@@ -63,7 +63,7 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_nat_gateway" "natgw" {
-  subnet_id = aws_subnet.pvtsub[0].id
+  subnet_id = aws_subnet.pubsub[0].id 
 }
 
 
