@@ -13,6 +13,4 @@ variable "net_info" {
       pvtsubname = list(string)
     }))
   })
-
-
 }

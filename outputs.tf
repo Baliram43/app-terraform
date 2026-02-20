@@ -6,7 +6,7 @@ output "vpc_infra_ids" {
     pubroutetableid = aws_route_table.pubroutetable.id
     pvtroutetableid = aws_route_table.pvtroutetable.id
     igwid           = aws_internet_gateway.igw.id
-    natid           = aws_nat_gateway.natgw.id
+   #natid           = aws_nat_gateway.natgw.id
   }
 }
 
