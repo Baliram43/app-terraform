@@ -63,8 +63,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.awsvpc.id
 }
 
-# resource "aws_nat_gateway" "natgw" {
-#   connectivity_type = "private"
-#   subnet_id         = aws_subnet.pubsub[0].id
-
-# }
+resource "aws_nat_gateway" "natgw" {
+  connectivity_type = "private"
+  subnet_id         = aws_subnet.pubsub[0].id
+}
