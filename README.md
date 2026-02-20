@@ -1,4 +1,4 @@
-##  Production-Ready AWS VPC Networking Stack (Terraform)
+## Production-Ready AWS VPC Networking Stack (Terraform)
 
 This project provisions a scalable, multi-environment AWS VPC networking stack using **Terraform** with remote state management and state locking.
 It follows Infrastructure as Code (IaC) best practices and is designed for real-world DevOps environments (Dev / QA / Prod).
@@ -20,7 +20,7 @@ The stack provisions:
 * State Locking (DynamoDB)
 ---
 
-##  Technology Stack
+## Technology Stack
 * **Terraform** (>= 1.15.0)
 * **Amazon Web Services**
 * **Amazon S3** (Remote State)
@@ -28,7 +28,7 @@ The stack provisions:
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 .
@@ -44,7 +44,7 @@ The stack provisions:
 
 ---
 
-##  Remote Backend Configuration
+## Remote Backend Configuration
 
 State is stored securely in S3 with DynamoDB locking:
 
@@ -66,7 +66,7 @@ backend "s3" {
 
 ---
 
-##  Multi-Environment Support
+## Multi-Environment Support
 Infrastructure is fully parameterized via:
 
 ```hcl
@@ -82,7 +82,7 @@ terraform apply -var-file="prod.tfvars"
 Each environment remains isolated.
 ---
 
-##  Structured Output
+## Structured Output
 
 All infrastructure identifiers are exposed through a single object:
 
@@ -102,7 +102,7 @@ Example structure:
 Clean, maintainable output contract.
 ---
 
-## 🛠 Usage
+## Usage
 
 ```bash
 terraform init
