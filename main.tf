@@ -38,10 +38,10 @@ resource "aws_route_table" "pubroutetable" {
 
 resource "aws_route_table" "pvtroutetable" {
   vpc_id = aws_vpc.awsvpc.id
-  # route {
-  #   cidr_block     = "0.0.0.0/0"
-  #   nat_gateway_id = aws_nat_gateway.natgw.id
-  # }
+   route {
+     cidr_block     = "0.0.0.0/0"
+     nat_gateway_id = aws_nat_gateway.natgw.id
+   }
   tags = {
     Name = "mypvtroute"
   }
